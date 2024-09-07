@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shrinking Image and Red Box Animation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Prevent scrollbars */
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .red-box, .image {
+      height: 100vh;
+      transition: width 0.8s ease-in-out;
+    }
+
+    .red-box {
+      background-color: red;
+      width: 0%; /* Start with 0% width */
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .animation-complete .red-box {
+      width: 50%; /* Red box takes 50% width */
+    }
+
+    .animation-complete .image {
+      width: 50%; /* Image takes 50% width */
+      transform: translateX(0%); /* Move the image to the right */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="red-box"></div>
+    <img class="image" src="https://foyr.com/learn/wp-content/uploads/2022/06/Prairie-style-house-1024x576.jpg" alt="Image">
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const container = document.querySelector('.container');
+      setTimeout(() => {
+        container.classList.add('animation-complete');
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
